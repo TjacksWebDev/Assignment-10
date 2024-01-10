@@ -14,6 +14,11 @@ import com.coderscampus.Assignment10.spoonacular.dto.WeekResponse;
 
 @RestController
 public class MealPlanController {
+	 @Value("${spoonacular.urls.base}")
+    	private String spoonacularBaseUrl;
+
+   	 @Value("${spoonacular.urls.mealplan}")
+   	 private String mealPlanEndpoint;
 
 	@GetMapping("mealplanner/week")
 	public ResponseEntity<WeekResponse> getWeekMeals(@RequestParam(required = false) String numCalories,
